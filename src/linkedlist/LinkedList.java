@@ -94,6 +94,42 @@ public class LinkedList {
         size--;
     }
 
+    // Retornar a média dos números da lista.
+    public double getAverage() {
+        double average = 0;
+        LinkedListNode nodeAux = head;
+        int contNumber = 0;
+
+        for (int i = 0; i < size; i++) {
+            String type = nodeAux.getValue().getClass().getSimpleName();
+            switch (type) {
+                case "Integer":
+                    int nInt = (int) nodeAux.getValue();
+                    average += nInt;
+                    contNumber++;
+                    break;
+
+                case "Float":
+                    float nFloat = (float) nodeAux.getValue();
+                    average += nFloat;
+                    contNumber++;
+                    break;
+
+                case "Double":
+                    double nDouble = (double) nodeAux.getValue();
+                    average += nDouble;
+                    contNumber++;
+                    break;
+            }
+
+            nodeAux = nodeAux.getNext();
+        }
+
+        average /= contNumber;
+
+        return average;
+    }
+
     public void remove(int index) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
