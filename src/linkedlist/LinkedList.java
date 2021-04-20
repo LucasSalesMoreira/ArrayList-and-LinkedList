@@ -2,7 +2,7 @@ package linkedlist;
 
 /**
  *
- * @author Lucas Sales Moreira Cordeiro
+ * @author Lucas Sales
  *
  **/
 
@@ -57,17 +57,20 @@ public class LinkedList {
         return nodeAux.getValue();
     }
 
-    public void set(int index, Object value) {
+    public Object set(int index, Object value) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
 
         LinkedListNode nodeAux = head;
+
+        Object v = get(index);
 
         for (int i = 0; i < index; i++) {
             nodeAux = nodeAux.getNext();
         }
 
         nodeAux.setValue(value);
+        return v;
     }
 
     public void removeFirst() {
@@ -129,6 +132,19 @@ public class LinkedList {
 
         return average;
     }
+
+    /*
+    public void printFrequency() {
+        for (int i = 0; i < size - 1; i++) {
+            if ((int) get(i) > (int) get(i + 1)) {
+                int aux = (int) get(i + 1);
+                set(i + 1, get(i));
+                set(i, aux);
+            }
+        }
+        System.out.println(this);
+    }
+    */
 
     public void remove(int index) {
         if (index < 0 || index >= size)
