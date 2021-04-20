@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //testList();
         start();
     }
 
@@ -84,24 +83,21 @@ public class Main {
     }
 
     private static void testArrayList() {
-        Lista_Array lista = new Lista_Array();
-        for (int i = 0; i < 150; i++) {
+        Lista_Array lista = new Lista_Array(5000);
+        for (int i = 0; i < 10; i++) {
             lista.addLast(i);
         }
 
         System.out.println(lista);
 
-        for (int i = 0; i < 5; i++) {
-            lista.remove(i);
-        }
+        lista.remove(5);
 
         System.out.println(lista);
 
-        for (int i = 0; i < 25; i++) {
-            lista.remove(i);
-        }
+        System.out.println(lista.getFirst());
+
+        System.out.println(lista.getLast());
 
         System.out.println(lista);
-
     }
 }
