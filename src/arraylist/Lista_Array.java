@@ -22,6 +22,22 @@ public class Lista_Array {
         livre = 0;
     }
 
+    public double media() {
+        double media = 0;
+        int cont = 0;
+        for (int i = 0; i < size(); i++) {
+            media += vet[i];
+            cont++;
+        }
+        return media / cont;
+    }
+
+    public double set(int index, double value) {
+        double v = vet[index];
+        vet[index] = value;
+        return v;
+    }
+
     public void addLast(double v) {
         if (livre < max) {
             vet[livre] = v;
@@ -83,4 +99,14 @@ public class Lista_Array {
         livre = -1;
         return i;
     }
+
+    @Override
+    public String toString() {
+        String out = "[";
+        for (int i = 0; i < size(); i++) {
+            out += vet[i] + " ";
+        }
+        return out + "]";
+    }
+
 }
